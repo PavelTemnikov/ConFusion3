@@ -7,7 +7,9 @@ import {
 	MatButtonModule, 
 	MatDialogModule, 
 	MatInputModule,
-	MatCheckboxModule 
+	MatCheckboxModule,
+	MatCardModule,
+	MatProgressSpinnerModule 
 
 } from '@angular/material';
 
@@ -18,14 +20,18 @@ import {
     MatButtonModule,
     MatDialogModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule,
+    MatProgressSpinnerModule
   ],
   exports: [
   	MatToolbarModule,
   	MatButtonModule,
   	MatDialogModule,
   	MatInputModule,
-  	MatCheckboxModule
+  	MatCheckboxModule,
+  	MatCardModule,
+  	MatProgressSpinnerModule
   ],
   declarations: []
 })

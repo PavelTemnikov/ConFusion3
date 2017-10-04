@@ -1,0 +1,29 @@
+<div class="container"
+     fxLayout="row"
+     fxLayout.lt-md="column"
+     fxLayoutAlign.gt-md="space-around start"
+     fxLayoutGap="10px">
+
+	<md-card *ngIf="dish" fxFlex>
+		<md-card-header>
+			<md-card-title>
+				<h3>{{dish.name | uppercase}}</h3>
+			</md-card-title>
+		</md-card-header>
+
+		<img md-card-image src="{{BaseURL + dish.image}}" alt="dish.name">
+
+		<md-card-content>
+			<p>{{dish.description}}</p>
+		</md-card-content>
+	</md-card>
+
+	<div [hidden]="dish || errmess">
+		<md-spinner></md-spinner> <h4>Loading . . . Please Wait</h4>
+	</div>
+
+	<div *ngIf="errmess">
+		<h2>Error</h2>
+		<h4>{{errmess}}</h4>
+	</div>
+</div>
