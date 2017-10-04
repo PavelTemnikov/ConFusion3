@@ -1,3 +1,5 @@
+$background-moredark: #4527A0; 
+
 .flex-spacer {
 	flex: 1 1 auto;
 }
@@ -9,4 +11,8 @@
 	background: #9575CD;
 	color: floralwhite;
 	min-height: 150px;
+}
+
+.active {
+	background: $background-moredark;
 }

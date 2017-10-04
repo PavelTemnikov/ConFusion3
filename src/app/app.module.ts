@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { RestangularModule } from 'ngx-restangular';
 import { RestangularConfigFactory } from './shared/restConfig';
 
+import { AppRoutingModule } from './app-routing/app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
@@ -36,7 +38,8 @@ import { FooterComponent } from './footer/footer.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
-    RestangularModule.forRoot(RestangularConfigFactory)
+    RestangularModule.forRoot(RestangularConfigFactory),
+    AppRoutingModule
   ],
   providers: [
   	DishService,
