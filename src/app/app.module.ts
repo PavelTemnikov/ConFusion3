@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
+import { LeaderService } from './services/leader.service';
 import { baseURL } from './shared/baseurl';
 
 @NgModule({
@@ -38,6 +39,7 @@ import { baseURL } from './shared/baseurl';
   providers: [
   	DishService,
     PromotionService,
+    LeaderService,
     {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [LoginComponent],

@@ -9,7 +9,7 @@ export class PromotionService {
 
   constructor(private restangular: Restangular) { }
 
-  getFeaturedDish(): Observable<Promotion> {
+  getFeaturedPromotion(): Observable<Promotion> {
   	return this.restangular.all('promotions').getList({ featured: true })
   		.map(promotions => promotions[0]);
   }
