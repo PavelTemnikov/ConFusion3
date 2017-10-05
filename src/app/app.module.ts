@@ -17,14 +17,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
+import { MenuComponent } from './menu/menu.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { baseURL } from './shared/baseurl';
-import { FooterComponent } from './footer/footer.component';
-import { AboutComponent } from './about/about.component';
-import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MenuComponent } from './menu/menu.component';
     HomeComponent,
     FooterComponent,
     AboutComponent,
-    MenuComponent
+    MenuComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
