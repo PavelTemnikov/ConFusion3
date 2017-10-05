@@ -9,6 +9,10 @@ export class DishService {
 
   constructor(private restangular: Restangular) { }
 
+  getDishes(): Observable<Dish[]> {
+  	return this.restangular.all('dishes').getList();
+  }
+
   getFeaturedDish(): Observable<Dish> {
   	return this.restangular.all('dishes').getList({ featured: true })
   		.map(dishes => dishes[0]);
