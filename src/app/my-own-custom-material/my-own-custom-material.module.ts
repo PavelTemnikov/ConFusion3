@@ -10,7 +10,8 @@ import {
 	MatCheckboxModule,
 	MatCardModule,
 	MatProgressSpinnerModule,
-	MatListModule 
+	MatListModule,
+	MatGridListModule 
 
 } from '@angular/material';
 
@@ -24,7 +25,8 @@ import {
     MatCheckboxModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule
   ],
   exports: [
   	MatToolbarModule,
@@ -34,7 +36,8 @@ import {
   	MatCheckboxModule,
   	MatCardModule,
   	MatProgressSpinnerModule,
-  	MatListModule
+  	MatListModule,
+  	MatGridListModule
   ],
   declarations: []
 })

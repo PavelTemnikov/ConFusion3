@@ -24,6 +24,7 @@ import { LeaderService } from './services/leader.service';
 import { baseURL } from './shared/baseurl';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AboutComponent } from './about/about.component';
     LoginComponent,
     HomeComponent,
     FooterComponent,
-    AboutComponent
+    AboutComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
