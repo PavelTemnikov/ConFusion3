@@ -18,4 +18,12 @@ export class DishService {
   		.map(dishes => dishes[0]);
   }
 
+  getDish(id: number): Observable<Dish> {
+  	return this.restangular.one('dishes', id).get();
+  }
+
+  getDishIds(): Observable<number[]> {
+    return this.getDishes()
+      .map(dishes => dishes.map(dish => dish.id));
+  }
 }

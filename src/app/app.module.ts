@@ -26,6 +26,7 @@ import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { baseURL } from './shared/baseurl';
+import { DishdetailComponent } from './dishdetail/dishdetail.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { baseURL } from './shared/baseurl';
     FooterComponent,
     AboutComponent,
     MenuComponent,
-    HighlightDirective
+    HighlightDirective,
+    DishdetailComponent
   ],
   imports: [
     BrowserModule,
