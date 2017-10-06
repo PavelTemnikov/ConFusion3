@@ -15,6 +15,7 @@ import { Location } from '@angular/common';
 export class DishdetailComponent implements OnInit {
 
 	dish: Dish;
+	errMess: string;
 
 	dishIds: number[];
 	prevId: number;
@@ -39,7 +40,7 @@ export class DishdetailComponent implements OnInit {
 
   				});
 
-  		});
+  		}, errMess => this.errMess = errMess);
   }
 
   setPrevNext(dishId: number) {
