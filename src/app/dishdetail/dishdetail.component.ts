@@ -7,6 +7,8 @@ import { DishService } from '../services/dish.service';
 
 import { Location } from '@angular/common';
 
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-dishdetail',
   templateUrl: './dishdetail.component.html',
@@ -14,17 +16,39 @@ import { Location } from '@angular/common';
 })
 export class DishdetailComponent implements OnInit {
 
-	dish: Dish;
+	dish;
 	errMess: string;
 
 	dishIds: number[];
 	prevId: number;
 	nextId: number;
 
+	commentForm: FormGroup;
+
+	formErrors = {
+		author: {
+			required: 'Author is required',
+			minlength: 'Author must be at least 2 characters long'
+		},
+
+		comment: {
+			required: 'Comment is required'
+		}
+	};
+
   constructor(private route: ActivatedRoute,
   	          private dishservice: DishService,
   	          private location: Location,
-  	          @Inject('BaseURL') private BaseURL) { }
+  	          private fb: FormBuilder,
+  	          @Inject('BaseURL') private BaseURL) {
+
+  	this.commentForm = this.fb.group({
+  		author: ['', [Validators.required, Validators.minLength(2)]],
+  		rating: 5, 
+  		comment: ['', [Validators.required]]
+  	});
+
+  }
 
   ngOnInit() {
   	this.route.params
@@ -55,6 +79,19 @@ export class DishdetailComponent implements OnInit {
 
   goBack() {
   	this.location.back();
+  }
+
+  onSubmit() {
+  	this.commentForm.value.date = new Date().toISOString();
+  	this.dish.comments.push(this.commentForm.value);
+
+  	this.dish.save();
+
+  	this.commentForm.reset({
+  		author: '',
+  		rating: 5,
+  		comment: ''
+  	});
   }
 
 }

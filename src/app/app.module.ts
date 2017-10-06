@@ -7,6 +7,7 @@ import 'hammerjs';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { RestangularModule } from 'ngx-restangular';
 import { RestangularConfigFactory } from './shared/restConfig';
@@ -46,6 +47,7 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
+    ReactiveFormsModule,
     RestangularModule.forRoot(RestangularConfigFactory),
     AppRoutingModule
   ],

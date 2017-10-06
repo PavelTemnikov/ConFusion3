@@ -52,11 +52,52 @@
 					<md-list-item *ngFor="let comment of dish.comments">
 						<h4 mdLine>{{comment.comment}}</h4>
 						<p mdLine>{{comment.rating}} Stars</p>
-						<p mdLine> -- {{comment.author}} {{comment.date | date: 'longDate'}}</p>
+						<p mdLine> 
+							-- {{comment.author}} {{comment.date | date: 'longDate'}}
+						</p>
 					</md-list-item>
 
 				</md-list>
 			</md-card-content>
+
+			<md-list *ngIf="commentForm.valid">
+				<md-list-item>
+					<h4 mdLine>{{commentForm.value.comment}}</h4>
+					<p mdLine>{{commentForm.value.rating}} Stars</p>
+					<p mdLine> -- {{commentForm.value.author}}</p>
+				</md-list-item>
+			</md-list>
+
+			<form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+				<md-form-field class="full-width">
+					<input mdInput formControlName="author" placeholder="Name" required>
+
+					<md-error *ngIf="commentForm.controls.author.errors?.required">
+						{{formErrors.author.required}}
+					</md-error>
+
+					<md-error *ngIf="commentForm.controls.author.errors?.minlength">
+						{{formErrors.author.minlength}}
+					</md-error>
+				</md-form-field>
+
+				<md-slider formControlName="rating" min="0" max="5" tickInterval="1" 
+				           thumbLabel></md-slider>
+
+				<md-form-field class="full-width">
+					<textarea mdInput formControlName="comment" placeholder="Your comment" 
+					          rows="12" required></textarea>
+
+					<md-error *ngIf="commentForm.controls.comment.errors?.required">
+						{{formErrors.comment.required}}
+					</md-error>
+				</md-form-field>
+
+				<button type="submit" md-button class="background-primary text-floral-white"
+				        [disabled]="commentForm.invalid">
+					Submit
+				</button>
+			</form>
 
 		</md-card>
 	</div>

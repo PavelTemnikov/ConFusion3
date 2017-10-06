@@ -1,3 +1,5 @@
+$background-dark: #512DA8;
+
 .container {
 	margin: 20px;
 	display: flex;
@@ -5,4 +7,16 @@
 
 .flex-spacer {
 	flex: 1 1 auto;
+}
+
+.full-width {
+	width: 95%;
+}
+
+.background-primary {
+	background-color: $background-dark;
+}
+
+.text-floral-white {
+	color: floralwhite;
 }
