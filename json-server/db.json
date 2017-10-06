@@ -51,6 +51,18 @@
           "author": "testName2",
           "rating": 3,
           "comment": "testComment2"
+        },
+        {
+          "author": "testName3",
+          "rating": 5,
+          "comment": "testComment3",
+          "date": "2017-10-06T15:26:26.789Z"
+        },
+        {
+          "author": "testName4",
+          "rating": 5,
+          "comment": "testComment4",
+          "date": "2017-10-06T15:29:44.556Z"
         }
       ]
     },

@@ -7,6 +7,7 @@ import 'hammerjs';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { RestangularModule } from 'ngx-restangular';
 import { RestangularConfigFactory } from './shared/restConfig';
@@ -26,6 +27,7 @@ import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { baseURL } from './shared/baseurl';
+import { DishdetailComponent } from './dishdetail/dishdetail.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { baseURL } from './shared/baseurl';
     FooterComponent,
     AboutComponent,
     MenuComponent,
-    HighlightDirective
+    HighlightDirective,
+    DishdetailComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { baseURL } from './shared/baseurl';
     BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
+    ReactiveFormsModule,
     RestangularModule.forRoot(RestangularConfigFactory),
     AppRoutingModule
   ],
