@@ -28,6 +28,7 @@ import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { baseURL } from './shared/baseurl';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component';
     AboutComponent,
     MenuComponent,
     HighlightDirective,
-    DishdetailComponent
+    DishdetailComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
