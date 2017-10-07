@@ -244,14 +244,24 @@
   ],
   "feedback": [
     {
-      "firstname": "firstname",
-      "lastname": "lastname",
-      "telnum": "0123",
-      "email": "email@test",
+      "firstname": "testFirstname",
+      "lastname": "testLastname",
+      "telnum": "0",
+      "email": "t@t",
+      "agree": true,
+      "contacttype": "Email",
+      "message": "testFeedback",
+      "id": 1
+    },
+    {
+      "firstname": "test first 2",
+      "lastname": "test last 2",
+      "telnum": "01",
+      "email": "test@test",
       "agree": true,
       "contacttype": "Tel",
-      "message": "my test feedback",
-      "id": 1
+      "message": "test feedback2",
+      "id": 2
     }
   ]
 }

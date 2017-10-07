@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ContactType } from '../shared/feedback';
+import { Feedback, ContactType } from '../shared/feedback';
+import { FeedbackService } from '../services/feedback.service';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -13,6 +14,12 @@ export class ContactComponent implements OnInit {
 
 	feedbackForm: FormGroup;
 	contactType = ContactType;
+
+	showForm:boolean = true;
+	showSpinner:boolean = false;
+	showFeedback:boolean = false;
+
+	feedback: Feedback;
 
 	formErrors = {
 		firstname: {
@@ -38,7 +45,8 @@ export class ContactComponent implements OnInit {
 		},
 	};
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+  					  private feedbackservice: FeedbackService) { }
 
   ngOnInit() {
   	this.feedbackForm = this.fb.group({
@@ -50,11 +58,38 @@ export class ContactComponent implements OnInit {
   		contacttype: 'None',
   		message: ''
   	});
+  }
 
-  	this.feedbackForm.valueChanges
-  		.subscribe(data => {
-  			// console.log(this.feedbackForm.controls.telnum.errors);
+  onSubmit() {
+  	this.showForm = false;
+		this.showSpinner = true;
+		this.showFeedback = false;
+
+  	this.feedbackservice.submitFeedback(this.feedbackForm.value)
+  		.subscribe(feedback => {
+  			this.feedback = feedback;
+
+  			this.showForm = false;
+				this.showSpinner = false;
+				this.showFeedback = true;
+
+				setTimeout(() => {
+					this.showForm = true;
+					this.showSpinner = false;
+					this.showFeedback = false;
+				}, 5000)
+
   		});
+
+  	this.feedbackForm.reset({
+  		firstname: '',
+  		lastname: '',
+  		telnum: 0,
+  		email: '',
+  		agree: false,
+  		contacttype: 'None',
+  		message: ''
+  	});
   }
 
 }
