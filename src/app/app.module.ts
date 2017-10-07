@@ -22,12 +22,14 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { MenuComponent } from './menu/menu.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { DishdetailComponent } from './dishdetail/dishdetail.component';
+import { ContactComponent } from './contact/contact.component';
 
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { baseURL } from './shared/baseurl';
-import { DishdetailComponent } from './dishdetail/dishdetail.component';
+import { FeedbackService } from './services/feedback.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component';
     AboutComponent,
     MenuComponent,
     HighlightDirective,
-    DishdetailComponent
+    DishdetailComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component';
   	DishService,
     PromotionService,
     LeaderService,
+    FeedbackService,
     {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [LoginComponent],
