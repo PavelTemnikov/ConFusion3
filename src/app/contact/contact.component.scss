@@ -1,4 +1,26 @@
+$background-dark: #512DA8;
+
 .container {
 	margin: 20px;
 	display: flex;
+}
+
+.half-width {
+	width: 45%;
+}
+
+.form-size {
+	width: 75%;
+}
+
+.full-width {
+	width: 95%;
+}
+
+.background-primary {
+	background-color: $background-dark;
+}
+
+.text-floral-white {
+	color: floralwhite;
 }
