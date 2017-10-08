@@ -4,7 +4,7 @@
      fxLayoutAlign.gt-md="space-around start"
      fxLayoutGap="10px">
 
-	<md-card *ngIf="dish" fxFlex>
+	<md-card *ngIf="dish" fxFlex [@expand]>
 		<md-card-header>
 			<md-card-title>
 				<h3>{{dish.name | uppercase}}</h3>
@@ -28,7 +28,7 @@
 	</div>
 
 
-	<md-card *ngIf="promotion" fxFlex>
+	<md-card *ngIf="promotion" fxFlex [@expand]>
 		<md-card-header>
 			<md-card-title>
 				<h3>{{promotion.name | uppercase}}</h3>
@@ -52,7 +52,7 @@
 	</div>
 
 
-	<md-card *ngIf="leader" fxFlex>
+	<md-card *ngIf="leader" fxFlex [@expand]>
 		<md-card-header>
 			<md-card-title>
 				<h3>{{leader.name | uppercase}}</h3>
