@@ -9,10 +9,21 @@ import { Location } from '@angular/common';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { flyInOut, expand, visibility } from '../animations/app.animation';
+
 @Component({
   selector: 'app-dishdetail',
   templateUrl: './dishdetail.component.html',
-  styleUrls: ['./dishdetail.component.scss']
+  styleUrls: ['./dishdetail.component.scss'],
+  host: {
+    '[@flyInOut]': '',
+    'style': 'display: block'
+  },
+  animations: [
+    flyInOut(),
+    expand(),
+    visibility()
+  ]
 })
 export class DishdetailComponent implements OnInit {
 
@@ -22,6 +33,8 @@ export class DishdetailComponent implements OnInit {
 	dishIds: number[];
 	prevId: number;
 	nextId: number;
+
+  visibility: string;
 
 	commentForm: FormGroup;
 
@@ -52,15 +65,22 @@ export class DishdetailComponent implements OnInit {
 
   ngOnInit() {
   	this.route.params
-  		.switchMap(params => this.dishservice.getDish(+params.id))
-  		.subscribe(dish => {
+  		.switchMap(params => {
 
-  			this.dish = dish;
+        this.visibility = 'hidden';
+        return this.dishservice.getDish(+params.id);
+
+      })
+  		.subscribe(dish => {
+        
   			this.dishservice.getDishIds()
   				.subscribe(dishIds => {
 
   					this.dishIds = dishIds;
-  					this.setPrevNext(this.dish.id);
+  					this.setPrevNext(dish.id);
+
+            this.dish = dish;
+            this.visibility = 'shown';
 
   				});
 

@@ -1,7 +1,7 @@
 <div class="container" fxLayout="column" fxLayoutGap="10px">
 	<h3>Menu</h3>
 
-	<div *ngIf="dishes">
+	<div *ngIf="dishes" [@expand]>
 		<md-grid-list cols="2" rowHeight="200px">
 			<md-grid-tile *ngFor="let dish of dishes" appHighlight
 			              [routerLink]="['/dishdetail', dish.id]">

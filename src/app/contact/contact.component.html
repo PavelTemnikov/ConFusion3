@@ -41,7 +41,8 @@
 
 	<div>
 		<h3>Send us your Feedback</h3>
-		<form novalidate *ngIf="showForm" [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+		<form novalidate *ngIf="showForm" [formGroup]="feedbackForm" (ngSubmit)="onSubmit()"
+		      [@expand]>
 			<p>
 				<md-form-field class="half-width"> 
 					<input mdInput formControlName="firstname" placeholder="First Name"
@@ -136,7 +137,7 @@
 			<h4>Submitting Form</h4> <md-spinner></md-spinner>
 		</div>
 
-		<div *ngIf="showFeedback">
+		<div *ngIf="showFeedback" [@expand]>
 			<h4>Your Submission</h4>
 			<p>First Name: {{feedback.firstname}}</p>
 			<p>Last Name: {{feedback.lastname}}</p>
