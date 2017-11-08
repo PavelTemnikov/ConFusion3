@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Dish } from '../shared/dish';
 import { DishService } from '../services/dish.service';
@@ -64,11 +64,11 @@ export class DishdetailComponent implements OnInit {
   }
 
   ngOnInit() {
-  	this.route.params
-  		.switchMap(params => {
+  	this.route.paramMap
+  		.switchMap( (params: ParamMap) => {
 
         this.visibility = 'hidden';
-        return this.dishservice.getDish(+params.id);
+        return this.dishservice.getDish(+params.get('id'));
 
       })
   		.subscribe(dish => {
@@ -113,6 +113,10 @@ export class DishdetailComponent implements OnInit {
   		comment: ''
   	});
   }
+
+  // get author(): void {
+
+  // }
 
 }
 
